@@ -9,7 +9,7 @@
             <div class="mb-4">
                 <label for="name" class="block text-sm font-medium text-gray-700">Nome completo</label>
                 <input type="text" id="name" name="name" value="{{ old('name') }}"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm 
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm uppercase
                     focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50">
                     @error('name')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -34,7 +34,7 @@
             <div class="mb-4">
                 <label for="public_name" class="block text-sm font-medium text-gray-700">Nome (público)</label>
                 <input type="text" id="public_name" name="public_name" value="{{ old('public_name') }}" placeholder="nome que será chamado"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm 
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm uppercase
                             focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50">
                 @error('public_name')
                     <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -44,7 +44,7 @@
             <div class="flex justify-end space-x-2">
                 <button type="submit"
                         class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
-                    Criar
+                    CRIAR
                 </button>
             </div>
         </form>

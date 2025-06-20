@@ -31,4 +31,5 @@ class MusicoController extends Controller
         Member::create($data);
         return redirect()->route('musico.index')->with('success', 'Músico cadastrado com sucesso!');
     }
+    
 }

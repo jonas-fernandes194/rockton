@@ -22,8 +22,8 @@ class MusicoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'max:200'],
-            'public_name' => ['required', 'max:200'],
+            'name' => ['required', 'min:3', 'max:200'],
+            'public_name' => ['required', 'min:3', 'max:200'],
             'cover' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:2048']
         ];
     }
