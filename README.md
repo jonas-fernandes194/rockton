@@ -8,5 +8,5 @@ Inspirado no Spotify, o Rockton surgiu com o propósito de cadastrar e organizar
     <li>Instale o NPM - npm install</li>
     <li>Instale o composer.json - composer install</li>
 </ul>
-<p><?= Onde o som ganha vida e o rock faz história ?></p>
+<p> Onde o som ganha vida e o rock faz história! </p>
 </ul>
