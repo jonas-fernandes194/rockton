@@ -18,8 +18,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('arena/musico/', [MusicoController::class, 'index'])->name('musico.index');
     Route::get('arena/musico/criar', [MusicoController::class, 'create'])->name('musico.create');
-
+    Route::get('arena/musico/editar/{id}', [MusicoController::class, 'edit'])->name('musico.edit');
     Route::post('arena/musico/store', [MusicoController::class, 'store'])->name('musico.store');
+    Route::put('arena/musico/atualizar/{id}', [MusicoController::class, 'update'])->name('musico.update');
 });
 
 require __DIR__.'/auth.php';
