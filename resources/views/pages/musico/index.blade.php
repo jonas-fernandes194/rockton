@@ -68,4 +68,5 @@
             {{ $musicos->links('pagination::tailwind') }}
         </div>
     </div>
+
 </x-app-layout>

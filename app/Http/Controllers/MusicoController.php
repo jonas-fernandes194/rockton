@@ -40,9 +40,9 @@ class MusicoController extends Controller
     }
 
     public function update(MusicoRequest $request, $id){
-       $musico = Member::find($id);
-       $data = $request->validated();
-
+        $musico = Member::find($id);
+        $data = $request->validated();
+        
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $path = $file->store('musicos', 'public');
