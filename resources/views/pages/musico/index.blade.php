@@ -6,6 +6,9 @@
     <div class="p-4 bg-white rounded shadow">
 
         <div class="text-right">
+            <button class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded shadow inline-block">
+                 Excluir
+            </button>
             <a href="{{ route('musico.create') }}" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow inline-block">
                 + Adicionar
             </a>
@@ -31,6 +34,9 @@
             <table class="min-w-full divide-y divide-gray-200 mt-5">
                 <thead class="bg-gray-100">
                     <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                            <input id="checkbox-master" type="checkbox">
+                        </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">NOME (PÚBLICO)</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">STATUS</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">FOTO</th>
@@ -42,6 +48,9 @@
                     @if (!$musicos->isEmpty())
                         @foreach ($musicos as $musico)
                             <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    <input type="checkbox" class="checkbox-musico-id" value="{{ $musico->id }}">
+                                </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $musico->public_name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">-</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -49,8 +58,7 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $musico->created_at->format('d/m/Y') }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    <a href="{{ route('musico.edit', $musico->id) }}" class="text-blue-600 hover:underline text-sm">EDITAR</a>
-                                    <a href="#" class="text-red-600 hover:underline text-sm ml-2">EXCLUIR</a>
+                                    <a href="{{ route('musico.edit', $musico->id) }}" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow inline-block">EDITAR</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -68,5 +76,16 @@
             {{ $musicos->links('pagination::tailwind') }}
         </div>
     </div>
-
 </x-app-layout>
+
+<script>
+    $('#checkbox-master').on('change', function () {
+        $('.checkbox-musico-id').prop('checked', $(this).prop('checked'));
+    });
+
+    $('.checkbox-musico-id').on('change', function () {
+        const idsSelecionados = $('.checkbox-musico-id:checked').map(function() {
+            return $(this).val();
+    }).get();
+});
+</script>
