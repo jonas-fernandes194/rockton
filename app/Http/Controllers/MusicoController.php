@@ -54,4 +54,15 @@ class MusicoController extends Controller
         $musico->update($data);
         return redirect()->route('musico.index', $musico->id)->with('success', 'Músico atualizado com sucesso!');
     }
+
+    public function destroy(Request $request){
+        $ids = $request->input('ids');
+        
+        if (!$ids || !is_array($ids)) {
+            return response()->json(['message' => 'IDs inválidos.'], 400);
+        }
+
+        Member::whereIn('id', $ids)->delete();
+        return response()->json(['message' => 'Registros excluídos com sucesso.']);
+    }
 }

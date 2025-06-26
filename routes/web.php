@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('arena/musico/editar/{id}', [MusicoController::class, 'edit'])->name('musico.edit');
     Route::post('arena/musico/store', [MusicoController::class, 'store'])->name('musico.store');
     Route::put('arena/musico/atualizar/{id}', [MusicoController::class, 'update'])->name('musico.update');
+    Route::post('/musico/delete', [MusicoController::class, 'destroy'])->name('musico.destroy');
 });
 
 require __DIR__.'/auth.php';
