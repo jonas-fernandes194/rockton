@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BandaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MusicoController;
 use App\Http\Controllers\ProfileController;
@@ -19,9 +20,13 @@ Route::middleware('auth')->group(function () {
     Route::get('arena/musico/', [MusicoController::class, 'index'])->name('musico.index');
     Route::get('arena/musico/criar', [MusicoController::class, 'create'])->name('musico.create');
     Route::get('arena/musico/editar/{id}', [MusicoController::class, 'edit'])->name('musico.edit');
-    Route::post('arena/musico/store', [MusicoController::class, 'store'])->name('musico.store');
+    Route::post('arena/musico/salvar', [MusicoController::class, 'store'])->name('musico.store');
     Route::put('arena/musico/atualizar/{id}', [MusicoController::class, 'update'])->name('musico.update');
     Route::post('/musico/delete', [MusicoController::class, 'destroy'])->name('musico.destroy');
+
+    Route::get('arena/banda/', [BandaController::class, 'index'])->name('banda.index');
+    Route::get('arena/banda/criar', [BandaController::class, 'create'])->name('banda.create');
+    Route::post('arena/banda/salvar', [BandaController::class, 'store'])->name('banda.store');
 });
 
 require __DIR__.'/auth.php';

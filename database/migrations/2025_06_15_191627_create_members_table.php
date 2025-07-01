@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('public_name');
             $table->text('cover');
             $table->text('description')->nullable();
+            $table->foreignId('band_id')->nullable()->constrained('bands');
             $table->timestamps();
         });
     }

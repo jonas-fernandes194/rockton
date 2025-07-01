@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        {{ $title ?? 'Membros' }}
+        {{ $title ?? 'Bands' }}
     </x-slot>
     <div class="p-4 bg-white rounded shadow">
         <div class="text-right">
@@ -8,7 +8,7 @@
                     disabled>
                 Excluir Selecionados
             </button>
-            <a href="{{ route('musico.create') }}" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow inline-block">
+            <a href="{{ route('banda.create') }}" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow inline-block">
                 + Adicionar
             </a>
         </div>
@@ -27,6 +27,23 @@
                 <button @click="show = false" class="ml-2 text-green-700 hover:text-green-900">&times;</button>
             </div>
         @endif
+
+        @if(session('error'))
+            <div
+                x-data="{ show: true }"
+                x-init="setTimeout(() => show = false, 4000)"
+                x-show="show"
+                x-transition
+                class="fixed top-5 right-5 z-50 bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg shadow-lg flex items-center space-x-2"
+                role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>{{ session('error') }}</span>
+                <button @click="show = false" class="ml-2 text-red-700 hover:text-red-900">&times;</button>
+            </div>
+        @endif
+
         <div class="overflow-x-auto bg-white rounded-lg shadow">
             <table id="table-musicos" class="min-w-full divide-y divide-gray-200 mt-5">
                 <thead class="bg-gray-100">
@@ -34,15 +51,15 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
                             <input type="checkbox" id="select-all">
                         </th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">NOME (PÚBLICO)</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">STATUS</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">TITULO</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">FOTO</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">STATUS</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">DATA</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">AÇÕES</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
-                    @if (!$musicos->isEmpty())
+                    {{-- @if (!$musicos->isEmpty())
                         @foreach ($musicos as $musico)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -65,12 +82,12 @@
                                 Nenhum músico encontrado.
                             </td>
                         </tr>
-                    @endif
+                    @endif --}}
                 </tbody>
             </table>
         </div>
         <div class="mt-4">
-            {{ $musicos->links('pagination::tailwind') }}
+            {{-- {{ $musicos->links('pagination::tailwind') }} --}}
         </div>
     </div>
     

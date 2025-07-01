@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Member extends Model
+class Band extends Model
 {
     protected $fillable = [
-        'name', 
-        'public_name', 
+        'name',
         'cover',
-        'band_id'
+        'description'
     ];
 
     protected $casts = [
+        'status' => '',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];

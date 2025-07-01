@@ -41,6 +41,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ config('app.name', 'Laravel') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-100 font-sans antialiased">
     <div class="flex h-screen">
@@ -51,8 +52,8 @@
             </div>
             <nav class="flex-1 p-4 space-y-2">
                 <a href="{{ route('dashboard') }}" class="block px-3 py-2 rounded hover:bg-gray-100 {{ request()->routeIs('dashboard') ? 'bg-gray-200' : '' }}">Arena</a>
-                <a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">Bandas</a>
-                <a href="{{ route('musico.index') }}" class="block px-3 py-2 rounded hover:bg-gray-100 {{ request()->routeIs('musico.index') ? 'bg-gray-200' : '' }}">Músicos</a>
+                <a href="{{ route('banda.index') }}" class="block px-3 py-2 rounded hover:bg-gray-100 {{ request()->routeIs('banda.*') ? 'bg-gray-200' : '' }}">Bandas</a>
+                <a href="{{ route('musico.index') }}" class="block px-3 py-2 rounded hover:bg-gray-100 {{ request()->routeIs('musico.*') ? 'bg-gray-200' : '' }}">Músicos</a>
                 <a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">Músicas</a>
                 <a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">Álbuns</a>
             </nav>
@@ -86,3 +87,4 @@
 
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>

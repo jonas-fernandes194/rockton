@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('cover');
             $table->char('status', 1);
             $table->text('description')->nullable();
-            $table->foreignId('member_id')->constrained('members');
             $table->timestamps();
         });
     }
