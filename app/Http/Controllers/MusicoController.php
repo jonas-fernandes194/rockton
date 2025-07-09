@@ -10,13 +10,13 @@ use Illuminate\Http\Request;
 class MusicoController extends Controller
 {
     public function index(){
-        $dados['title'] = 'Arena | Músicos';
+        $dados['title'] = 'ARENA > MÚSICOS';
         $dados['musicos'] = Member::orderBy('name', 'asc')->paginate(5);
         return view('pages.musico.index', $dados);
     }
 
     public function create(){
-        $dados['title'] = 'Arena | Cadastro de músicos';
+        $dados['title'] = 'ARENA > CADASTRO DE MÚSICOS';
         return view('pages.musico.create', $dados);
     }
 
@@ -29,6 +29,12 @@ class MusicoController extends Controller
     public function store(MusicoRequest $request){
         $data = $request->validated();    
         
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $path = $file->store('musicos', 'public');
+            $data['photo'] = $path;
+        }
+
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $path = $file->store('musicos', 'public');

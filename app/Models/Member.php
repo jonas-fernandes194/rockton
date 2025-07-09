@@ -8,13 +8,15 @@ class Member extends Model
 {
     protected $fillable = [
         'name', 
-        'public_name', 
         'cover',
-        'band_id'
+        'band_id',
+        'description',
+        'photo'
     ];
 
     protected $casts = [
         'created_at' => 'datetime',
-        'updated_at' => 'datetime'
+        'updated_at' => 'datetime',
+        'status' => ''
     ];
 }
