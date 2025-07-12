@@ -4,6 +4,6 @@
     </x-slot>
 
     <div class="p-4 bg-white rounded shadow">
-        Você está logado no Rockton!
+        Você está logado em Rockton!
     </div>
 </x-app-layout>

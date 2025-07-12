@@ -47,7 +47,7 @@
                                     <input type="checkbox" class="checkbox-musico-id" value="{{ $musico->id }}">
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $musico->name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">-</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-bold {{ $musico->status->getColorStatus() }}">{{ $musico->status->name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                     <img src="{{ asset('storage/' . $musico->photo) }}" alt="{{ $musico->name }}" class="object-cover rounded-full w-10 h-10">
                                 </td>

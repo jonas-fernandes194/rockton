@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Musico\StatusMusico;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MusicoRequest;
 use App\Models\Member;
@@ -21,8 +22,9 @@ class MusicoController extends Controller
     }
 
     public function edit($id){
-        $dados['title'] = 'Arena | Editar de músicos';
+        $dados['title'] = 'AENA > EDITAR MÚSICOS';
         $dados['musico'] = Member::find($id);
+        $dados['status'] = StatusMusico::cases();
         return view('pages.musico.edit', $dados);
     }
 

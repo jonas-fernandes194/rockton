@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Musico\StatusMusico;
 use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model
@@ -17,6 +18,6 @@ class Member extends Model
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
-        'status' => ''
+        'status' => StatusMusico::class
     ];
 }

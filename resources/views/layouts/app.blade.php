@@ -86,7 +86,6 @@
                 </a>
             </nav>
             <div class="p-4 border-t text-sm text-gray-600">
-                {{-- {{ Auth::user()->name }} --}}
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="flex items-center gap-2 mt-2 text-red-600 hover:underline">
