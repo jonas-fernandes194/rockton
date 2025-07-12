@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        Arena
+        ARENA
     </x-slot>
 
     <div class="p-4 bg-white rounded shadow">
