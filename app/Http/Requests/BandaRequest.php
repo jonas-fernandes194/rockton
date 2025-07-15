@@ -17,8 +17,11 @@ class BandaRequest extends FormRequest
 
         if ($this->isMethod('post')) 
         {
-            $rules['musico_id'] = ['required'];
+            $rules['member_id'] = ['required', 'array', 'min:2'];
             $rules['name'] = ['required', 'min:3', 'max:100'];
+            $rules['cover'] = ['required', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:2048'];
+            $rules['photo'] = ['required', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:2048'];
+            $rules['description'] = ['nullable', 'min:10', 'max:3000'];
         }
         
         return $rules;

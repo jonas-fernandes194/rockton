@@ -22,7 +22,7 @@ class MusicoRequest extends FormRequest
             $rules['name'] = ['required', 'min:3', 'max:200'];
             $rules['cover'] = ['required', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:2048'];
             $rules['photo'] = ['required', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:2048'];
-            $rules['description'] = ['required', 'min:10', 'max:3000'];
+            $rules['description'] = ['nullable', 'min:10', 'max:3000'];
         }
 
         if ($this->isMethod('put') || $this->isMethod('patch')) {
