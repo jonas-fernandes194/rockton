@@ -55,7 +55,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 mt-2">
                 <label for="bio" class="block text-sm font-medium text-gray-700">BIO</label>
                 <textarea id="description" name="description"
                     class="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
@@ -66,7 +66,23 @@
                     <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
-            <div class="flex justify-end space-x-2">
+            <div class="col-12 mt-2">
+                <label for="bio" class="block text-sm font-medium text-gray-700">STATUS</label>
+                <select name="status" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm 
+                    focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50">
+                    <option value="">SELECIONE</option>
+                    @foreach ($status as $option)
+                        <option value="{{ $option->value }}"
+                            @if (old('status', $musico->status->value ?? '') === $option->value) selected @endif>
+                            {{ $option->name }}
+                        </option>
+                    @endforeach
+                </select>
+                 @error('status')
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="flex justify-end space-x-2 mt-4">
                 <button type="submit"
                         class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
                     ATUALIZAR

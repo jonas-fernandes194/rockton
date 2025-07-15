@@ -12,7 +12,8 @@ class Member extends Model
         'cover',
         'band_id',
         'description',
-        'photo'
+        'photo',
+        'status'
     ];
 
     protected $casts = [
