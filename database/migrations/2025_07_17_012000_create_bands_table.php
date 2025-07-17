@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('bands', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('cover');
+            $table->string('cover')->nullable();
+            $table->string('photo')->nullable();
             $table->char('status', 1);
-            $table->text('description')->nullable();
+            $table->text('description');
             $table->timestamps();
         });
     }
