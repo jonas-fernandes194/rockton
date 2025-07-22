@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Banda\StatusBanda;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Band;
@@ -14,7 +15,7 @@ class BandaController extends Controller
 {
     public function index(){
         $dados['title'] = 'ARENA > BANDAS';
-        $dados['bandas'] = Band::orderBy('name', 'asc');
+        $dados['bandas'] = Band::orderBy('name', 'asc')->paginate(5);
         return view('pages.banda.index', $dados);
     }
 
@@ -23,6 +24,13 @@ class BandaController extends Controller
         $dados['musicos'] = Member::where('status', StatusMusico::ATIVO)
                                     ->orderBy('name', 'asc')->get();
         return view('pages.banda.create', $dados);
+    }
+
+    public function edit($id){
+        $dados['title'] = 'ARENA > EDITAR BANDAS';
+        $dados['banda'] = Band::find($id);
+        $dados['status'] = StatusBanda::cases();
+        return view('pages.banda.edit', $dados);
     }
 
     public function store(BandaRequest $request){
@@ -40,7 +48,7 @@ class BandaController extends Controller
             $data['cover'] = $path;
         }
        
-        $data['status'] = 'A';
+        $data['status'] = StatusBanda::ATIVO;
         $band = Band::create($data);
         $memberIds = $request->input('member_id'); 
 
@@ -48,8 +56,8 @@ class BandaController extends Controller
             BandMember::create([
                 'band_id'       => $band->id,
                 'member_id'     => $memberId,
-                'status_band'   => 'A',
-                'status_member' => 'A',
+                'status_band'   => StatusBanda::ATIVO,
+                'status_member' => StatusMusico::ATIVO,
             ]);
         }
         

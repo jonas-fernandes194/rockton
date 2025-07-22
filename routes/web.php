@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('arena/banda/', [BandaController::class, 'index'])->name('banda.index');
     Route::get('arena/banda/criar', [BandaController::class, 'create'])->name('banda.create');
+    Route::get('arena/banda/editar/{id}', [BandaController::class, 'edit'])->name('banda.edit');
     Route::post('arena/banda/salvar', [BandaController::class, 'store'])->name('banda.store');
 });
 

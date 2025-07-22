@@ -40,36 +40,36 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
-                    {{-- @if (!$banda->isEmpty())
-                        @foreach ($musicos as $musico)
+                    @if (!$bandas->isEmpty())
+                        @foreach ($bandas as $banda)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    <input type="checkbox" class="checkbox-musico-id" value="{{ $musico->id }}">
+                                    <input type="checkbox" class="checkbox-musico-id" value="{{ $banda->id }}">
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $musico->name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap font-bold {{ $musico->status->getColorStatus() }}">{{ $musico->status->name }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $banda->name }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-bold {{ $banda->status->getColorStatus() }}">{{ $banda->status->name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    <img src="{{ asset('storage/' . $musico->photo) }}" alt="{{ $musico->name }}" class="object-cover rounded-full w-10 h-10">
+                                    <img src="{{ asset('storage/' . $banda->photo) }}" alt="{{ $banda->name }}" class="object-cover rounded-full w-10 h-10">
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $musico->created_at->format('d/m/Y') }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $banda->created_at->format('d/m/Y') }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    <a href="{{ route('musico.edit', $musico->id) }}" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow inline-block">EDITAR</a>
+                                    <a href="{{ route('banda.edit', $banda->id) }}" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow inline-block">EDITAR</a>
                                 </td>
                             </tr>
                         @endforeach
                     @else
                         <tr>
                             <td colspan="5" class="text-center text-sm text-gray-500 py-4">
-                                Nenhum músico encontrado.
+                                Nenhum registro encontrado.
                             </td>
                         </tr>
-                    @endif --}}
+                    @endif
                 </tbody>
             </table>
         </div>
-        {{-- <div class="mt-4">
-            {{ $musicos->links('pagination::tailwind') }}
-        </div> --}}
+        <div class="mt-4">
+            {{ $bandas->links('pagination::tailwind') }}
+        </div>
     </div>
     
     <div id="confirmationModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
