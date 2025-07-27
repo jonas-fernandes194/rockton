@@ -1,11 +1,14 @@
-<div class="header">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="{{ route('home') }}" class="text-2xl font-bold text-white-400">ROCKTON</a>
-        <nav class="space-x-4 header-fonts">
-            <a href="" class="hover:text-green-400">INICIO</a>
-            <a href="" class="hover:text-green-400">BANDAS</a>
-            <a href="" class="hover:text-green-400">MÚSICAS</a>
-            <a href="" class="hover:text-green-400">MEMBROS</a>
-        </nav>
+<div id="section" class="bg-black text-white py-4">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+        <div class="logo">
+            <img src="{{ asset('assets/imagens/rockton.png') }}" alt="Rockton" title="Rockton">
+        </div>
+        <div class="flex gap-6 header-menu">
+            <a href="#" class="header-menu-itens">Home</a>
+            <a href="#" class="header-menu-itens">Sobre</a>
+            <a href="#" class="header-menu-itens">Albuns</a>
+            <a href="#" class="header-menu-itens">Músicos</a>
+            <a href="#" class="header-menu-itens">Músicas</a>
+        </div>
     </div>
 </div>

@@ -43,7 +43,7 @@ class MusicoController extends Controller
             $data['cover'] = $path;
         }
         
-        $data['status'] = StatusMusico::ATIVO;
+        $data['status'] = StatusMusico::Ativo;
         Member::create($data);
         return redirect()->route('musico.index')->with('success', 'Músico cadastrado com sucesso!');
     }

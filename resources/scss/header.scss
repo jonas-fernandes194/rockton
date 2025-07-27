@@ -1,10 +1,15 @@
-.header {
+#section{
     font-family: $montserrat-regular;
     color: $white;
     background-color: $primary-color;
-}
 
-.header-fonts{
-    font-family: $montserrat-bold;
-    color: $white;
+    .logo{
+        width: 200px;
+    }
+
+    .header-menu-itens{
+        font-family: $montserrat-semi-bold;
+        font-size: 20px;
+        color: $white;
+    }
 }

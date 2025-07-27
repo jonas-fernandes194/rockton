@@ -48,7 +48,7 @@ class BandaController extends Controller
             $data['cover'] = $path;
         }
        
-        $data['status'] = StatusBanda::ATIVO;
+        $data['status'] = StatusBanda::Ativo;
         $band = Band::create($data);
         $memberIds = $request->input('member_id'); 
 
@@ -56,8 +56,8 @@ class BandaController extends Controller
             BandMember::create([
                 'band_id'       => $band->id,
                 'member_id'     => $memberId,
-                'status_band'   => StatusBanda::ATIVO,
-                'status_member' => StatusMusico::ATIVO,
+                'status_band'   => StatusBanda::Ativo,
+                'status_member' => StatusMusico::Inativo,
             ]);
         }
         

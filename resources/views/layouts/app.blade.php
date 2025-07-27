@@ -43,7 +43,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ 'ROCKTON' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-100 font-sans antialiased">
     <div class="flex h-screen">
@@ -58,7 +57,7 @@
                 <a href="{{ route('dashboard') }}"
                     class="flex items-center gap-2 px-3 py-2 rounded border-l-4 border-transparent hover:border-[#201E1E] {{ request()->routeIs('dashboard') ? 'bg-white text-[#201E1E] border-[#201E1E]' : 'text-white' }}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                    Arena
+                    Dashboard
                 </a>
 
                 <a href="{{ route('banda.index') }}"
@@ -83,6 +82,12 @@
                     class="flex items-center gap-2 px-3 py-2 rounded border-l-4 border-transparent hover:border-[#201E1E] text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-disc3-icon lucide-disc-3"><circle cx="12" cy="12" r="10"/><path d="M6 12c0-1.7.7-3.2 1.8-4.2"/><circle cx="12" cy="12" r="2"/><path d="M18 12c0 1.7-.7 3.2-1.8 4.2"/></svg>
                     Álbuns
+                </a>
+
+                <a href="{{ url('/') }}" target="_blank"
+                    class="flex items-center gap-2 px-3 py-2 rounded border-l-4 border-transparent hover:border-[#201E1E] text-white">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloudy-icon lucide-cloudy"><path d="M17.5 21H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/><path d="M22 10a3 3 0 0 0-3-3h-2.207a5.502 5.502 0 0 0-10.702.5"/></svg>
+                    Ver site
                 </a>
             </nav>
             <div class="p-4 border-t text-sm text-gray-600">
