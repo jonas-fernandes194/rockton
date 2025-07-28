@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BandaController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MusicaController;
 use App\Http\Controllers\MusicoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::get('arena/banda/criar', [BandaController::class, 'create'])->name('banda.create');
     Route::get('arena/banda/editar/{id}', [BandaController::class, 'edit'])->name('banda.edit');
     Route::post('arena/banda/salvar', [BandaController::class, 'store'])->name('banda.store');
+
+    Route::get('arena/musica/', [MusicaController::class, 'index'])->name('musica.index');
 });
 
 require __DIR__.'/auth.php';

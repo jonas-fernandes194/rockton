@@ -14,20 +14,20 @@ use App\Http\Requests\BandaRequest;
 class BandaController extends Controller
 {
     public function index(){
-        $dados['title'] = 'ARENA > BANDAS';
+        $dados['title'] = 'Arena / Bandas';
         $dados['bandas'] = Band::orderBy('name', 'asc')->paginate(5);
         return view('pages.banda.index', $dados);
     }
 
     public function create(){
-        $dados['title'] = 'ARENA > CADASTRO DE BANDAS';
-        $dados['musicos'] = Member::where('status', StatusMusico::ATIVO)
+        $dados['title'] = 'Arena / Cadastro de bandas';
+        $dados['musicos'] = Member::where('status', StatusMusico::Ativo)
                                     ->orderBy('name', 'asc')->get();
         return view('pages.banda.create', $dados);
     }
 
     public function edit($id){
-        $dados['title'] = 'ARENA > EDITAR BANDAS';
+        $dados['title'] = 'Arena > Editar Bandas';
         $dados['banda'] = Band::find($id);
         $dados['status'] = StatusBanda::cases();
         return view('pages.banda.edit', $dados);

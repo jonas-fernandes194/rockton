@@ -11,18 +11,18 @@ use Illuminate\Http\Request;
 class MusicoController extends Controller
 {
     public function index(){
-        $dados['title'] = 'ARENA > MÚSICOS';
+        $dados['title'] = 'Arena / Músicos';
         $dados['musicos'] = Member::orderBy('name', 'asc')->paginate(5);
         return view('pages.musico.index', $dados);
     }
 
     public function create(){
-        $dados['title'] = 'ARENA > CADASTRO DE MÚSICOS';
+        $dados['title'] = 'Arena / Cadastro de músicos';
         return view('pages.musico.create', $dados);
     }
 
     public function edit($id){
-        $dados['title'] = 'AENA > EDITAR MÚSICOS';
+        $dados['title'] = 'Arena / Editar músicos';
         $dados['musico'] = Member::find($id);
         $dados['status'] = StatusMusico::cases();
         return view('pages.musico.edit', $dados);

@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        {{ $title ?? 'Bands' }}
+        {{ $title ?? 'Musicas' }}
     </x-slot>
     <div class="p-4 bg-white rounded shadow">
         <div class="text-right">
@@ -32,29 +32,28 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
                             <input type="checkbox" id="select-all">
                         </th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">NOME</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">STATUS</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">TITULO</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">FOTO</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">BANDA</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">DATA</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">AÇÕES</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
                     @if (!$bandas->isEmpty())
-                        @foreach ($bandas as $banda)
+                        @foreach ($musicas as $musica)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    <input type="checkbox" class="checkbox-musico-id" value="{{ $banda->id }}">
+                                    <input type="checkbox" class="checkbox-musico-id" value="{{ $musica->id }}">
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $banda->name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap font-bold {{ $banda->status->getColorStatus() }}">{{ $banda->status->name }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $musica->title }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    <img src="{{ asset('storage/' . $banda->photo) }}" alt="{{ $banda->name }}" class="object-cover rounded-full w-10 h-10">
+                                    <img src="{{ asset('storage/' . $musica->photo) }}" alt="{{ $musica->title }}" class="object-cover rounded-full w-10 h-10">
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $banda->created_at->format('d/m/Y') }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    <a href="{{ route('banda.edit', $banda->id) }}" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow inline-block">EDITAR</a>
-                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $musica->created_at->format('d/m/Y') }}</td>
+                                {{-- <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    <a href="{{ route('musica.edit', $musica->id) }}" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow inline-block">EDITAR</a>
+                                </td> --}}
                             </tr>
                         @endforeach
                     @else
@@ -67,9 +66,9 @@
                 </tbody>
             </table>
         </div>
-        <div class="mt-4">
+        {{-- <div class="mt-4">
             {{ $bandas->links('pagination::tailwind') }}
-        </div>
+        </div> --}}
     </div>
     
     <div id="confirmationModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">

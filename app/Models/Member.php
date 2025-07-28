@@ -21,4 +21,8 @@ class Member extends Model
         'updated_at' => 'datetime',
         'status' => StatusMusico::class
     ];
+
+    public function bands(){
+        return $this->belongsToMany(Band::class, 'band_member');
+    }
 }
