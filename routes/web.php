@@ -31,6 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::post('arena/banda/salvar', [BandaController::class, 'store'])->name('banda.store');
 
     Route::get('arena/musica/', [MusicaController::class, 'index'])->name('musica.index');
+    Route::get('arena/musica/criar', [MusicaController::class, 'create'])->name('musica.create');
+    Route::get('arena/musica/editar/{id}', [MusicaController::class, 'edit'])->name('musica.edit');
+    Route::post('arena/musica/salvar', [MusicaController::class, 'store'])->name('musica.store');
+    Route::post('arena/musica/delete', [MusicaController::class, 'destroy'])->name('musica.destroy');
 });
 
 require __DIR__.'/auth.php';

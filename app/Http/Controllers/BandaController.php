@@ -34,7 +34,7 @@ class BandaController extends Controller
     }
 
     public function store(BandaRequest $request){
-         $data = $request->validated();    
+        $data = $request->validated();    
 
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');

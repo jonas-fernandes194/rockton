@@ -1,0 +1,53 @@
+<x-app-layout>
+    <x-slot name="header">
+        {{ $title ?? 'Membros' }}
+    </x-slot>
+    <div class="p-4 bg-white rounded shadow">
+        <form action="{{ route('musica.store') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-4">
+                <label for="title" class="block text-sm font-medium text-gray-700">Nome</label>
+                <input type="text" id="title" name="title" value="{{ old('title') }}"
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm 
+                    focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50" oninput="this.value = this.value.toUpperCase()">
+                    @error('title')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+            </div>
+            {{-- <div>
+                <label class="block mb-2 text-sm font-medium text-gray-700">Foto de perfil</label>
+                <label class="cursor-pointer inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-upload-icon lucide-cloud-upload">
+                        <path d="M12 13v8"/><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="m8 17 4-4 4 4"/>
+                    </svg>
+                    <span class="ml-2">Selecionar imagem</span>
+                    <input type="file" name="photo" class="hidden" accept="image/*" onchange="showFileName(event, 'photo-file-name')">
+                </label>
+                <p id="photo-file-name" class="text-sm text-gray-600 mt-2"></p>
+                @error('photo')
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div> --}}
+            <label for="name" class="block text-sm font-medium text-gray-700">Selecione a banda</label>
+            <select class="select-music block w-full" name="banda_id">
+                <option>Selecione</option>
+                @foreach ($bandas as $banda)
+                    <option value="{{ $banda->id }}">{{ $banda->name }}</option>
+                @endforeach
+            </select>
+            <div class="flex justify-end space-x-2 mt-2">
+                <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+                    CRIAR
+                </button>
+            </div>
+        </form>
+    </div>
+</x-app-layout>
+
+{{-- <script>
+    function showFileName(event, targetId) {
+        const input = event.target;
+        const fileName = input.files.length > 0 ? input.files[0].name : '';
+        document.getElementById(targetId).textContent = fileName;
+    }
+</script> --}}

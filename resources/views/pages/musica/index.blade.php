@@ -8,7 +8,7 @@
                     disabled>
                 Excluir
             </button>
-            <a href="{{ route('banda.create') }}" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow inline-block">
+            <a href="{{ route('musica.create') }}" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow inline-block">
                 + Adicionar
             </a>
         </div>
@@ -40,7 +40,7 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
-                    @if (!$bandas->isEmpty())
+                    @if (!$musicas->isEmpty())
                         @foreach ($musicas as $musica)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -51,9 +51,9 @@
                                     <img src="{{ asset('storage/' . $musica->photo) }}" alt="{{ $musica->title }}" class="object-cover rounded-full w-10 h-10">
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $musica->created_at->format('d/m/Y') }}</td>
-                                {{-- <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                     <a href="{{ route('musica.edit', $musica->id) }}" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow inline-block">EDITAR</a>
-                                </td> --}}
+                                </td>
                             </tr>
                         @endforeach
                     @else
@@ -66,9 +66,9 @@
                 </tbody>
             </table>
         </div>
-        {{-- <div class="mt-4">
-            {{ $bandas->links('pagination::tailwind') }}
-        </div> --}}
+        <div class="mt-4">
+            {{ $musicas->links('pagination::tailwind') }}
+        </div>
     </div>
     
     <div id="confirmationModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
