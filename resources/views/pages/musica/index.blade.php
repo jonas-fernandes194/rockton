@@ -12,19 +12,7 @@
                 + Adicionar
             </a>
         </div>
-        @if(session('success'))
-            <div
-                x-data="{ show: true }"
-                x-init="setTimeout(() => show = false, 4000)"
-                x-show="show"
-                x-transition
-                class="fixed top-5 right-5 z-50 bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg shadow-lg flex items-center space-x-2"
-                role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smile-icon lucide-smile"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg>
-                <span>{{ session('success') }}</span>
-                <button @click="show = false" class="ml-2 text-green-700 hover:text-green-900">&times;</button>
-            </div>
-        @endif
+        <x-alert type="success"/>
         <div class="overflow-x-auto bg-white rounded-lg shadow">
             <table id="table-musicos" class="min-w-full divide-y divide-gray-200 mt-5">
                 <thead class="bg-gray-100">
@@ -33,7 +21,6 @@
                             <input type="checkbox" id="select-all">
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">TITULO</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">FOTO</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">BANDA</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">DATA</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">AÇÕES</th>
@@ -47,9 +34,7 @@
                                     <input type="checkbox" class="checkbox-musico-id" value="{{ $musica->id }}">
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $musica->title }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    <img src="{{ asset('storage/' . $musica->photo) }}" alt="{{ $musica->title }}" class="object-cover rounded-full w-10 h-10">
-                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $musica->band->name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $musica->created_at->format('d/m/Y') }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                     <a href="{{ route('musica.edit', $musica->id) }}" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow inline-block">EDITAR</a>

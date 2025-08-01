@@ -2,16 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\Band;
 use Illuminate\Database\Eloquent\Model;
 
-class Music extends Model 
+class Music extends Model
 {
-    protected $table = 'musics';
-    
+    protected $table = 'musics'; 
+
     protected $fillable = [
         'title',
-        'photo',
         'band_id'
     ];
 

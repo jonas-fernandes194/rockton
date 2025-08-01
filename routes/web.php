@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('arena/musica/criar', [MusicaController::class, 'create'])->name('musica.create');
     Route::get('arena/musica/editar/{id}', [MusicaController::class, 'edit'])->name('musica.edit');
     Route::post('arena/musica/salvar', [MusicaController::class, 'store'])->name('musica.store');
+    Route::put('arena/musica/atualizar/{id}', [MusicaController::class, 'update'])->name('musica.update');
     Route::post('arena/musica/delete', [MusicaController::class, 'destroy'])->name('musica.destroy');
 });
 

@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\Enums\Banda\StatusBanda;
+use App\Models\Music as ModelsMusic;
 use Illuminate\Database\Eloquent\Model;
-use Music;
+
 
 class Band extends Model
 {
@@ -26,7 +27,7 @@ class Band extends Model
         return $this->belongsToMany(Member::class, 'band_member');
     }
 
-    public function music(){
+    public function musics(){
         return $this->hasMany(Music::class);
     }
 }

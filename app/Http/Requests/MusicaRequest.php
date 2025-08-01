@@ -15,10 +15,14 @@ class MusicaRequest extends FormRequest
     {
         $rules = [];
 
-         if ($this->isMethod('post')) 
+        if ($this->isMethod('post')) 
         {
             $rules['title'] = ['required', 'min:3', 'max:200'];
-            $rules['photo'] = ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:2048'];
+            $rules['band_id'] = ['required'];
+        }
+
+        if ($this->isMethod('put') || $this->isMethod('patch')) {
+            $rules['title'] = ['required', 'min:3', 'max:200'];
             $rules['band_id'] = ['required'];
         }
 

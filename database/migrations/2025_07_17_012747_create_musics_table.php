@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('musics', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('photo')->nullable();
             $table->unsignedBigInteger('band_id'); 
             $table->foreign('band_id')->references('id')->on('bands');
             $table->timestamps();
