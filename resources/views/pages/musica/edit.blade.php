@@ -17,9 +17,9 @@
             </div>
             <label for="name" class="block text-sm font-medium text-gray-700">Selecione a banda</label>
             <select class="select-music block w-full" name="band_id">
-                <option>Selecione</option>
+                <option value="">Selecione</option>
                 @foreach ($bandas as $banda)
-                    <option value="{{ $banda->id }}" {{ old('band_id') == $banda->id ? 'selected' : '' }}>
+                    <option value="{{ $banda->id }}" {{ old('band_id', $musica->band_id) == $banda->id ? 'selected' : '' }}>
                         {{ $banda->name }}
                     </option>
                 @endforeach

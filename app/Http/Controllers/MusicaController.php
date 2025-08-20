@@ -28,7 +28,7 @@ class MusicaController extends Controller
     public function edit($id){
         $dados['title'] = 'Arena / Editar músicas';
         $dados['musica'] = Music::find($id);
-        $dados['bandas'] = Band::find($id);
+        $dados['bandas'] = Band::all();
         return view('pages.musica.edit', $dados);
     }
 
