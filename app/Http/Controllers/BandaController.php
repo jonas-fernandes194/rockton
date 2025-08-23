@@ -22,6 +22,7 @@ class BandaController extends Controller
     public function create(){
         $dados['title'] = 'Arena / Cadastro de bandas';
         $dados['musicos'] = Member::where('status', StatusMusico::Ativo)
+                                    ->whereDoesntHave('bands')
                                     ->orderBy('name', 'asc')->get();
         return view('pages.banda.create', $dados);
     }
