@@ -12,19 +12,7 @@
                 + Adicionar
             </a>
         </div>
-        @if(session('success'))
-            <div
-                x-data="{ show: true }"
-                x-init="setTimeout(() => show = false, 4000)"
-                x-show="show"
-                x-transition
-                class="fixed top-5 right-5 z-50 bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg shadow-lg flex items-center space-x-2"
-                role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smile-icon lucide-smile"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg>
-                <span>{{ session('success') }}</span>
-                <button @click="show = false" class="ml-2 text-green-700 hover:text-green-900">&times;</button>
-            </div>
-        @endif
+        <x-alert type="success"/>
         <div class="overflow-x-auto bg-white rounded-lg shadow">
             <table id="table-musicos" class="min-w-full divide-y divide-gray-200 mt-5">
                 <thead class="bg-gray-100">

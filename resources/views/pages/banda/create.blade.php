@@ -15,7 +15,7 @@
                     @enderror
             </div>
             <label for="name" class="block text-sm font-medium text-gray-700">Adicione os músicos que farão parte da sua equipe</label>
-            <select class="select-member block w-full" name="member_id[]" multiple="multiple">
+            <select class="select2 select-member block w-full" name="member_id[]" multiple="multiple">
                 @foreach ($musicos as $musico)
                     <option value="{{ $musico->id }}">{{ $musico->name }}</option>
                 @endforeach
@@ -69,11 +69,6 @@
 </x-app-layout>
 
 <script>
-    $('.select-member').select2({
-        placeholder: 'Selecione um músico',
-        allowClear: true,
-    });
-
     function showFileName(event, targetId) {
         const input = event.target;
         const fileName = input.files.length > 0 ? input.files[0].name : '';
