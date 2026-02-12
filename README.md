@@ -12,18 +12,6 @@ O Rockton centraliza informações musicais de forma organizada e estruturada, f
 - 🤝 Colaborações entre artistas
 - 📚 Discografias
 
-### 📌 Estrutura
-
-rockton/
-├── docker/
-│   ├── php/
-│   │   └── Dockerfile
-│   └── nginx/
-│       └── default.conf
-├── src/                # Projeto Laravel
-├── .env                # Variáveis do Docker (MySQL)
-├── docker-compose.yml
-
 ## 🛠️ Tecnologias Utilizadas
 
 - **PHP**
