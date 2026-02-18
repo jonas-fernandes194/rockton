@@ -11,6 +11,9 @@
                <div class="flex-1">
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Nome</label>
                     <input type="text" id="name" name="name" value="{{ old('name') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Digite o nome do músico">
+                    @error('name')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="w-full md:w-64">
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Status</label>
@@ -19,6 +22,9 @@
                         <option value="1" selected>Ativo</option>
                         <option value="0">Inativo</option>
                     </select>
+                    @error('status')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Foto</label>
@@ -26,6 +32,9 @@
                         <div class="relative">
                             <img id="photo" src="{{ asset('imagens/generic-img.jpg') }}" class="h-50 object-cover rounded-xl border border-gray-300 cursor-pointer hover:opacity-80 transition"  onclick="document.getElementById('photoInput').click()">
                             <input type="file" id="photoInput" name="photo" accept="image/*" class="hidden">
+                            @error('photo')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -35,6 +44,9 @@
                         <div class="relative">
                             <img id="cover" src="{{ asset('imagens/generic-img.jpg') }}" class="h-50 object-cover rounded-xl border border-gray-300 cursor-pointer hover:opacity-80 transition"  onclick="document.getElementById('coverInput').click()">
                             <input type="file" id="coverInput" name="cover" accept="image/*" class="hidden">
+                            @error('cover')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>

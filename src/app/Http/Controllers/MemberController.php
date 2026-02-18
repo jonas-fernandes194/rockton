@@ -11,7 +11,7 @@ class MemberController extends Controller
 {
     public function index()
     {
-        $members = Member::orderBy('name', 'asc')->paginate(3);
+        $members = Member::orderBy('name', 'asc')->paginate(10);
         return view('dashboard.member.index', compact('members'));
     }
 
@@ -58,7 +58,7 @@ class MemberController extends Controller
                 'status'      => $data['status'],
                 'description' => !!$data['description'] ? $data['description'] : null,
             ]);
-            return back()->with('success', 'Músico criado com sucesso!');
+            return back()->with('success', 'Músico adicionado com sucesso!');
 
         } catch (\Exception $e) {
             if (isset($photoPath) && file_exists(public_path($photoPath))) {
