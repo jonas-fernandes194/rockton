@@ -13,6 +13,9 @@
 /src/storage/framework/testing
 /src/storage/framework/views
 /src/bootstrap/cache/*.php
+/src/public/storage
+/src/storage/*.key
+
 
 # Arquivos de ambiente
 .env

@@ -2,8 +2,8 @@
 @section('title', 'Home')
 @section('content')
 <section class="relative h-screen w-full bg-cover bg-center bg-no-repeat" style="background-image: url('imagens/banner.png');">
-    <div class="absolute inset-0 bg-black/30"></div>
-    <div class="relative z-10 h-full flex items-center justify-end px-6 md:px-45">
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative z-10 h-full flex items-baseline p-55 justify-end px-6 md:px-45">
         <div class="max-w-xl text-right text-white space-y-6">
             <h1 class="text-4xl md:text-4xl font-bold leading-tight">
                 <span class="block text-neutral-400">DESCUBRA</span>
