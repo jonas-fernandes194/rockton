@@ -4,9 +4,9 @@
 @section('content')
     <div class="bg-white shadow-md p-5 overflow-hidden">
         <div class="flex justify-end gap-3 mb-4">
-            <button type="button" disabled class="px-5 py-2.5 bg-red-600 text-white font-semibold rounded-xl shadow-md 
+            <button type="button" id="delete-master" disabled class="px-5 py-2.5 bg-red-600 text-white font-semibold rounded-xl shadow-md 
                     hover:bg-red-700 hover:shadow-lg transition duration-200
-                    disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-red-600 disabled:hover:shadow-md">Excluir
+                    disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-red-600 disabled:hover:shadow-md" onclick="deletarMusico();">Excluir
             </button>
             <a href="{{ route('dashboard.member.create') }}" class="px-5 py-2.5 bg-green-600 text-white font-semibold rounded-xl shadow-md hover:bg-green-700 hover:shadow-lg transition duration-200">+ Adicionar</a>
         </div>
@@ -42,12 +42,13 @@
                     <th class="px-6 py-3">Nome</th>
                     <th class="px-6 py-3">Status</th>
                     <th class="px-6 py-3">Criado em</th>
+                    <th class="px-6 py-3">Ações</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200"> 
                 @if(!$members->isEmpty())
                     @foreach($members as $member)
-                        <tr class="hover:bg-gray-50 transition cursor-pointer">
+                        <tr id="delete-unit-{{ $member->id }}" class="hover:bg-gray-50 transition cursor-pointer" value="{{ $member->id }}">
                             <td class="px-6 py-4 align-middle">
                                 <div class="flex items-center">
                                     <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
@@ -68,6 +69,7 @@
                                 </span>
                             </td>
                             <td class="px-6 py-4 align-middle">{{ ($member->created_at)->format('d/m/Y') }}</td>
+                            <td><a href="{{ route('dashboard.member.edit', $member->id) }}" class="px-5 py-2.5 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 hover:shadow-lg transition duration-200">Editar</a></td>
                         </tr>
                     @endforeach
                     @else
@@ -87,5 +89,21 @@
     $(function() {
         $('#loading').show();
     });
+
+    //delete-unit
+    //delete-master
+
+    $('input[type="checkbox"]').on('change', function() {
+        const selected = $('input[type="checkbox"]:checked').length;
+        $('#delete-master').prop('disabled', selected === 0);
+    });
+
+    function deletarMusico() {
+        const selectedIds = $('input[type="checkbox"]:checked').closest('tr').map(function() {
+            return $(this).attr('value');
+        }).get();
+
+       console.log(selectedIds);
+    }
 </script>
 @endpush

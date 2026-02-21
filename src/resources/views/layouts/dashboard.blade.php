@@ -23,9 +23,8 @@
                 <a href="{{ route('dashboard') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl {{ request()->routeIs('dashboard') ? $active : $inactive }}">
                     Dashboard
                 </a>
-                <a href="{{ route('dashboard.member') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl {{ request()->routeIs('dashboard.member') ? $active : $inactive }}">
+                 <a href="{{ route('dashboard.member') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl {{ request()->routeIs('dashboard.member*') ? $active : $inactive }}">
                     Músicos
-                </a>
                 <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl {{ $inactive }}">
                     Músicas
                 </a>
@@ -53,9 +52,7 @@
                                 {{ auth()->user()->name }}
                             </p>
                         </div>
-
-                        <div class="h-10 w-10 rounded-full bg-gradient-to-br from-gray-500 to-gray-600
-                                    text-white flex items-center justify-center font-bold shadow">
+                        <div class="h-10 w-10 rounded-full bg-gradient-to-br from-gray-500 to-gray-600 text-white flex items-center justify-center font-bold shadow">
                             {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                         </div>
                     </button>
@@ -64,8 +61,7 @@
                         <a href="#" class="block px-4 py-3 text-sm hover:bg-slate-100 rounded-t-2xl">Perfil</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button
-                                class="w-full text-left px-4 py-3 text-sm text-red-600 hover:bg-red-50 rounded-b-2xl">
+                            <button class="w-full text-left px-4 py-3 text-sm text-red-600 hover:bg-red-50 rounded-b-2xl">
                                 Sair
                             </button>
                         </form>

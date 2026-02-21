@@ -70,4 +70,66 @@ class MemberController extends Controller
             return back()->withInput()->with('error', 'Erro ao criar músico. Tente novamente.');
         }
     }
+
+    public function edit(Member $member)
+    {
+        $member = Member::find($member->id);
+        return view('dashboard.member.edit', compact('member'));
+    }
+
+    public function update(MemberRequest $request, Member $member)
+    {
+        try {
+            $data = $request->validated();
+            $photoPath = $member->photo;
+            $coverPath = $member->cover;
+
+            $destinationMember = public_path('imagens/members/photo');
+            if (!file_exists($destinationMember)) {
+                mkdir($destinationMember, 0755, true);
+            }
+
+            $destinationCover = public_path('imagens/members/cover');
+            if (!file_exists($destinationCover)) {
+                mkdir($destinationCover, 0755, true);
+            }
+
+            // Upload da FOTO
+            if ($request->hasFile('photo')) {
+                if (file_exists(public_path($member->photo))) {
+                    unlink(public_path($member->photo));
+                }
+                $photoName = uniqid('photo_') . '.' . $request->file('photo')->extension();
+                $request->file('photo')->move($destinationMember, $photoName);
+                $photoPath = 'imagens/members/photo/' . $photoName;
+            }
+
+            // Upload da CAPA
+            if ($request->hasFile('cover')) {
+                if (file_exists(public_path($member->cover))) {
+                    unlink(public_path($member->cover));
+                }
+                $coverName = uniqid('cover_') . '.' . $request->file('cover')->extension();
+                $request->file('cover')->move($destinationCover, $coverName);
+                $coverPath = 'imagens/members/cover/' . $coverName;
+            }
+
+            $member->update([
+                'name'        => $data['name'],
+                'photo'       => $photoPath,
+                'cover'       => $coverPath,
+                'status'      => $data['status'],
+                'description' => !!$data['description'] ? $data['description'] : null,
+            ]);
+            return back()->with('success', 'Músico atualizado com sucesso!');
+
+        } catch (\Exception $e) {
+            return back()->withInput()->with('error', 'Erro ao atualizar músico. Tente novamente.');
+        }
+    }
+
+    public function destroy(Member $member)
+    {
+        
+    }
 }

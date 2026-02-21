@@ -11,9 +11,12 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/dashboard/member', [MemberController::class, 'index'])->name('dashboard.member');
+    Route::get('/dashboard/musico', [MemberController::class, 'index'])->name('dashboard.member');
     Route::get('/dashboard/musico/cadastrar', [MemberController::class, 'create'])->name('dashboard.member.create');
     Route::post('/dashboard/musico/cadastrar', [MemberController::class, 'store'])->name('dashboard.member.store');
+    Route::get('/dashboard/musico/editar/{member}', [MemberController::class, 'edit'])->name('dashboard.member.edit');
+    Route::put('/dashboard/musico/editar/{member}', [MemberController::class, 'update'])->name('dashboard.member.update');
+    Route::delete('/dashboard/musico/deletar/{member}', [MemberController::class, 'destroy'])->name('dashboard.member.destroy');
 });
 
 Route::middleware('auth')->group(function () {

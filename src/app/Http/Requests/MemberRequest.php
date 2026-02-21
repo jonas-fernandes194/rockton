@@ -13,7 +13,7 @@ class MemberRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|min:3|max:255',
+            'name' => $this->isMethod('post') ? 'required|string|min:3|max:255' : 'nullable|string|min:3|max:255',
             'photo' => $this->isMethod('post') ? 'required|image|mimes:jpg,jpeg,png,webp|max:2048':'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'cover' => $this->isMethod('post') ? 'required|image|mimes:jpg,jpeg,png,webp|max:2048':'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'status' => 'required',
