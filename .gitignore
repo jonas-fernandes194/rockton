@@ -1,0 +1,9 @@
+# Docker
+.env
+
+# Laravel
+/src/.env
+
+# Dependencies
+/src/vendor/
+/src/node_modules/
