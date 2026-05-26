@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\Dashboard\DashboardController;
+use App\Http\Controllers\Auth\Dashboard\MemberController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -21,4 +22,5 @@ Route::post('/registrar', [RegisterController::class, 'store'])->name('register.
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('/arena', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/arena/membros', [MemberController::class, 'index'])->name('dashboard.members.index');
 });
