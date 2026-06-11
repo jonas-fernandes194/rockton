@@ -10,22 +10,22 @@
 
 <body class="bg-gray-100 min-h-screen">
     <div class="flex">
-        <!-- SIDEBAR -->
-        <aside class="bg-white w-62 min-h-screen p-4 border-b-2 border-gray-200">
+        <aside class="bg-white w-64 min-h-screen p-4 border-b-2 border-gray-200">
             <img src="{{ asset('assets/imagens/logos/rockton-gray.svg') }}" alt="Logo" class="w-40 mb-8">
             <ul>
                 <li>
-                    <a href="{{ route('dashboard') }}"
-                       class="block px-4 py-2 rounded-lg font-medium text-sm
+                    <a href="{{ route('dashboard') }}" class="block px-4 py-2 rounded-lg font-medium text-sm
                         {{ request()->routeIs('dashboard*') 
-                                ? 'bg-gray-100 text-gray-900' 
-                                : 'text-gray-700 hover:bg-gray-100' }}">
-                                Dashboard
+                            ? 'bg-gray-100 text-gray-900' 
+                            : 'text-gray-700 hover:bg-gray-100' }}">
+                            Dashboard
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('dashboard.members.index') }}"
-                       class="block px-4 py-2 rounded-lg hover:bg-gray-100 font-medium text-sm text-gray-700">
+                    <a href="{{ route('members.index') }}" class="block px-4 py-2 rounded-lg hover:bg-gray-100 font-medium text-sm
+                        {{ request()->routeIs('members*') 
+                            ? 'bg-gray-100 text-gray-900' 
+                            : 'text-gray-700 hover:bg-gray-100' }}">
                         Músicos
                     </a>
                 </li>

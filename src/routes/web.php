@@ -22,5 +22,5 @@ Route::post('/registrar', [RegisterController::class, 'store'])->name('register.
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('/arena', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/arena/membros', [MemberController::class, 'index'])->name('dashboard.members.index');
+    Route::get('/arena/musicos', [MemberController::class, 'index'])->name('members.index');
 });

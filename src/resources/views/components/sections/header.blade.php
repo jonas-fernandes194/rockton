@@ -7,7 +7,6 @@
                 class="w-40"
             >
         </a>
-
         <nav>
             <ul class="flex gap-8 font-medium">
                 <li><a href="#">SOBRE</a></li>
