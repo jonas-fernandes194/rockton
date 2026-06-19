@@ -12,16 +12,21 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function authenticate(LoginRequest $request) {
-       $credentials = $request->only('email', 'password');
- 
+    public function authenticate(LoginRequest $request){
+        $credentials = $request->only('email', 'password');
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('arena');
+
+            return response()->json([
+                'success' => true,
+                'redirect' => '/arena'
+            ]);
         }
- 
-        return back()->withErrors([
-            'email' => 'E-mail ou senha inválidos.',
-        ])->onlyInput('email');
+
+        return response()->json([
+            'success' => false,
+            'message' => 'E-mail ou senha inválidos.'
+        ], 422);
     }
 }

@@ -8,6 +8,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="h-full">
-     {{ $slot }}
+    {{ $slot }}
+    @include('components.notifications')
+    @stack('scripts')
 </body>
 </html>
