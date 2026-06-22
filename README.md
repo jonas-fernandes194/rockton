@@ -32,7 +32,7 @@ rockton/
 - **Laravel**
 - **MySQL**
 - **Docker**
-- **Tailwind CSS**
+- **Bootstrap**
 
 ## ⚙️ Objetivo
 
