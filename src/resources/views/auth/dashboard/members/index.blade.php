@@ -1,3 +1,3 @@
 <x-layouts.dashboard>
-    <button class="bg-zinc-800 text-white p-2 cursor-pointer">Cadastrar</button>
+    <button class="btn btn-secondary">Cadastrar</button>
 </x-layouts.dashboard>

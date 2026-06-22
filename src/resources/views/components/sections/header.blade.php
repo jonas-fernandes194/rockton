@@ -1,19 +1,20 @@
-<header class="w-full bg-zinc-800 text-white">
-    <div class="flex items-center justify-between px-16 py-8">
-        <a href="">
+<header class="w-100 bg-dark text-white">
+    <div class="d-flex align-items-center justify-content-between px-4 py-3">
+        <a href="" class="d-inline-block">
             <img
                 src="{{ asset('assets/imagens/logos/rockton-branco.svg') }}"
                 alt="ROCKTON"
-                class="w-40"
+                class="img-fluid"
+                style="max-width: 10rem;"
             >
         </a>
         <nav>
-            <ul class="flex gap-8 font-medium">
-                <li><a href="#">SOBRE</a></li>
-                <li><a href="#">BANDAS</a></li>
-                <li><a href="#">ÁLBUNS</a></li>
-                <li><a href="#">MÚSICOS</a></li>
-                <li><a href="#">MÚSICAS</a></li>
+            <ul class="nav gap-4 fw-medium mb-0">
+                <li class="nav-item"><a class="nav-link px-0 text-white" href="#">SOBRE</a></li>
+                <li class="nav-item"><a class="nav-link px-0 text-white" href="#">BANDAS</a></li>
+                <li class="nav-item"><a class="nav-link px-0 text-white" href="#">ÁLBUNS</a></li>
+                <li class="nav-item"><a class="nav-link px-0 text-white" href="#">MÚSICOS</a></li>
+                <li class="nav-item"><a class="nav-link px-0 text-white" href="#">MÚSICAS</a></li>
             </ul>
         </nav>
     </div>
