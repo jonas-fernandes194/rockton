@@ -1,0 +1,5 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+    --bs-body-font-family: 'Instrument Sans', sans-serif;
+}
