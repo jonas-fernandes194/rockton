@@ -1,0 +1,14 @@
+.swal2-icon.swal2-success {
+  border-color: #639922 !important;
+  color: #639922 !important;
+}
+
+.swal2-icon.swal2-error {
+  border-color: #E24B4A !important;
+  color: #E24B4A !important;
+}
+
+.swal2-icon.swal2-warning {
+  border-color: #EF9F27 !important;
+  color: #EF9F27 !important;
+}

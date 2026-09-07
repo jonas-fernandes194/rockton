@@ -14,6 +14,7 @@
         @endif
     </head>
     <body class="bg-light text-dark">
+        
         <header class="container py-4">
             @if (Route::has('login'))
                 <nav class="d-flex justify-content-end gap-2">

@@ -8,10 +8,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="auth-page" style="background-image: url('{{ asset('img/login.png') }}');">
+    <x-notifications />
     <main class="auth-content">
         <div class="text-center mb-3">
             <img src="{{ asset('img/rockton.png') }}" alt="Rockton">
-            <p class="text-white-50 small mt-2 mb-0">Por trás de cada som, uma história para descobrir.</p>
+            <p class="text-white-50 small mt-2 mb-0">Por trás de cada som, existe uma história para descobrir.</p>
         </div>
         <div class="auth-card">
             <div class="card-body p-3">

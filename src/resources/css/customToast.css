@@ -1,0 +1,16 @@
+.rockton-toast {
+  border-radius: 10px !important;
+  border: 1px solid #22262F !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+.rockton-modal {
+  border-radius: 10px !important;
+  border: 1px solid #22262F !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+.rockton-btn-ghost {
+  border: 1px solid #4B5563 !important;
+  color: #E8E8E6 !important;
+}
